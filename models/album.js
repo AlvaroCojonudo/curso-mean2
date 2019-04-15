@@ -1,7 +1,6 @@
 'use strict'
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
 var AlbumSchema = Schema({
     title: String,
     description: String,
@@ -12,5 +11,4 @@ var AlbumSchema = Schema({
         ref: 'Artist'
     }
 });
-
 module.exports = mongoose.model('Album', AlbumSchema);
