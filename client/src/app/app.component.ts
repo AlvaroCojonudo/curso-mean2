@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './models/user';
-import { UserService} from './services/user.service';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from  '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -19,9 +20,16 @@ export class AppComponent implements OnInit{
     this.user = new User('','','','','','ROLE_USER','');
   }
   ngOnInit(){
-
   }
   public onSubmit(){
+    this._userService.signup(this.user).subscribe(res => {
+      console.log(res);
+    }, err =>{
+      var errorMessage = <any>err;
+      if(errorMessage != null){
+        console.log(err);
+      }
+    });
     console.log(this.user);
   }
 }
