@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background: #2b5876;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Heebo', sans-serif !important;
+}
+.bg-gradiant-ui{
+    background: #2b5876;
+    background: -webkit-linear-gradient(to right, #4e4376, #2b5876);
+    background: linear-gradient(to right, #4e4376, #2b5876);
+}
+.tittle{
+    font-family: 'Pacifico', cursive !important;
+    font-size: 4rem;
+    text-shadow: 4px 2px #2c2c2c;
+}
