@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './models/user';
 import { UserService } from './services/user.service';
-import { identity } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,9 +12,9 @@ import { identity } from 'rxjs';
 export class AppComponent implements OnInit {
   public title = 'Musify';
   public user: User;
-  public identity;
-  public token;
-  public errorMessage = null;
+  public identity: any;
+  public token: string;
+  public errorMessage: any = null;
   constructor(private _userService: UserService) {
     this.user = new User('', '', '', '', '', 'ROLE_USER', '');
   }
@@ -33,7 +32,7 @@ export class AppComponent implements OnInit {
           this._userService.signup(this.user, 'true').subscribe(
             res => {
               this.token = res.token;  
-              if(this.token <= 0){
+              if(this.token.length <= 0){
                 alert('El token no se ha generado correctamente');
               }else{
                 localStorage.setItem('identity', JSON.stringify(this.identity));
