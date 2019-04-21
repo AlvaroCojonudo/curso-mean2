@@ -48,3 +48,6 @@
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
+.nav-link{
+    font-size: 1.5rem;
+}

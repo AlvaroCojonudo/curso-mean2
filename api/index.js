@@ -9,7 +9,7 @@ mongoose.connect("mongodb://localhost:27017/curso_mean2",{ useNewUrlParser: true
     }else{
         //console.log("La base de datos esta correcta!");
         app.listen(port, function(){
-            //console.log('servidor escuchando.');
+            console.log('servidor escuchando en el puerto', port);
         });
     }
 });
