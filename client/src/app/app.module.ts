@@ -2,15 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {  UserService  } from './services/user.service';
- 
+import { UserService } from './services/user.service'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//import {  } from 'rxjs';
-
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +17,12 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
-  bootstrap: [AppComponent]
+  providers: [
+    UserService,
+    AppRoutingModule
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

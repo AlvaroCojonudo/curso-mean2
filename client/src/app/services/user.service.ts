@@ -55,4 +55,14 @@ export class UserService {
         }
         return this._http.post(this.url + 'register', params, httpOptions);
     }
+    updateUser(userUpdate){
+        let params = JSON.stringify(userUpdate);
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': this.getToken()
+            })
+        }
+        return this._http.put(this.url + 'update-user/'+ userUpdate._id, params, httpOptions);
+    }
 }

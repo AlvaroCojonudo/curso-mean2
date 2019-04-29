@@ -79,6 +79,9 @@ export class AppComponent implements OnInit {
         }
       });
   }
+  updateUser(){
+
+  }
   logout() {
     localStorage.clear();
     localStorage.removeItem('identity');
