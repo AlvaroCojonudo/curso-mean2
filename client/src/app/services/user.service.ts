@@ -28,10 +28,10 @@ export class UserService {
     }
     getIdentity() {
         let identity = JSON.parse(localStorage.getItem('identity'));
-        if(identity != 'undefined'){
+        if(identity != 'undefined' && identity != null){
             this.identity = identity;
             var number = (this.identity.email).indexOf('@');
-            this.identity.user = (this.identity.email).substring(0, 14);
+            this.identity.user = (this.identity.email).substring(0, number);
         }else{
             this.identity = null;
         }
@@ -39,11 +39,20 @@ export class UserService {
     }
     getToken() {
         let token = localStorage.getItem('token');
-        if(token != 'undefined'){
+        if(token != 'undefined' && token != null){
             this.token = token;
         }else{
             this.token = null;
         }
         return this.token;
+    }
+    register(userRegister){
+        let params = JSON.stringify(userRegister);
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        }
+        return this._http.post(this.url + 'register', params, httpOptions);
     }
 }
