@@ -6,10 +6,14 @@ import { UserService } from './services/user.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { DahsboardComponent } from './components/dahsboard/dahsboard.component';
+import { ErrorComponent } from './components/error/error.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UserEditComponent
+    UserEditComponent,
+    DahsboardComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

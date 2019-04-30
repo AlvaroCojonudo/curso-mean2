@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './models/user';
+import { global } from './services/global';
 import { UserService } from './services/user.service';
 @Component({
   selector: 'app-root',
@@ -10,8 +11,7 @@ import { UserService } from './services/user.service';
   ]
 })
 export class AppComponent implements OnInit {
-  public respuesta: any = null;
-  public respuesta2: any = null;
+  public url: string;
   public title = 'Musify';
   public user: User;
   public userRegister: User;
@@ -19,31 +19,35 @@ export class AppComponent implements OnInit {
   public token: string;
   public errorMessage: any = null;
   public alertRegister: any = null;
-  constructor(private _userService: UserService) {
+  constructor(
+    private _userService: UserService
+  ) {
     this.user = new User('', '', '', '', '', 'ROLE_USER', '');
     this.userRegister = new User('', '', '', '', '', 'ROLE_USER', '');
-  }
-  ngOnInit() {
+    this.url = global.url;
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
+  }
+  ngOnInit() {
+
   }
   onSubmit() {
     this._userService.signup(this.user).subscribe(
       res => {
-        this.respuesta = null;
-        this.respuesta = res;
-        this.identity = this.respuesta.user;
+        var respuesta: any = res;
+        this.identity = respuesta.user;
         if (!this.identity._id) {
           alert('El usuario no esta correctamente logeado.');
         } else {
           this._userService.signup(this.user, 'true').subscribe(
             res => {
-              this.respuesta2 = null;
-              this.respuesta2 = res;
-              this.token = this.respuesta2.token;
+              var respuesta2: any = res;
+              this.token = respuesta2.token;
               if (this.token.length <= 0) {
                 alert('El token no se ha generado correctamente');
               } else {
+                var number = (this.identity.email).indexOf('@');
+                this.identity.user = (this.identity.email).substring(0, number);
                 localStorage.setItem('identity', JSON.stringify(this.identity));
                 localStorage.setItem('token', this.token);
                 this.user = new User('', '', '', '', '', 'ROLE_USER', '');
@@ -60,14 +64,13 @@ export class AppComponent implements OnInit {
   onSubmitRegister() {
     console.log(this.userRegister);
     this._userService.register(this.userRegister).subscribe(res => {
-      this.respuesta = null;
-      this.respuesta = res;
-      let user = this.respuesta.user;
+      var respuesta: any = res;
+      let user = respuesta.user;
       this.userRegister = user;
-      if(!user._id){
+      if (!user._id) {
         alert('Error al registrar!');
-      }else{
-        
+      } else {
+
         this.alertRegister = 'El registro se ha realizado, identificate!';
         this.userRegister = new User('', '', '', '', '', 'ROLE_USER', '');;
       }
@@ -78,9 +81,6 @@ export class AppComponent implements OnInit {
           this.alertRegister = erroMessage.error.message;
         }
       });
-  }
-  updateUser(){
-
   }
   logout() {
     localStorage.clear();

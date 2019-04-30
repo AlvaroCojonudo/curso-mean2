@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { DahsboardComponent } from './components/dahsboard/dahsboard.component';
+import { ErrorComponent } from './components/error/error.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: UserEditComponent,    
+    component: DahsboardComponent,    
   },
   {
     path: 'mis-datos',
@@ -13,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: UserEditComponent,    
+    component: ErrorComponent,    
   }
 ];
 

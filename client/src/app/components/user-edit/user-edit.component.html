@@ -2,19 +2,16 @@
     <div class="col-lg-6 offset-lg-3 mb-4">
         <div class="account-wall rounded">
             <h1 class="text-center display-4">{{ titulo }}</h1>
-            <img class="profile-img" src="../../../assets/img/sign.ico" alt="">
             <form class="form-signin" #updateForm='ngForm' (ngSubmit)='onSubmit()'>
                 <div *ngIf='errorMessage' class="alert alert-warning mt-2" role="alert">
                     {{ errorMessage }}
                 </div>
-                <input type="text" class="form-control rounded-top" #email='ngModel' name='email'
-                    [(ngModel)]='user.email' placeholder="Email" required>
-                <input type="text" class="form-control rounded-0" #name='ngModel' name='name' [(ngModel)]='user.name'
-                    placeholder="Nombre" required>
-                <input type="text" class="form-control rounded-bottom" #surname='ngModel' name='surname'
-                    [(ngModel)]='user.surname' placeholder="Apellido" required>
-                <img src="" alt="..." class="img-thumbnail" *ngIf='user.image && user.image != "null"'>
-                <input type="file" name="" id="" placeholder="Subir Imagen">
+                <img src="{{url + 'get-image-user/' +user.image}}" alt="..." class="img-thumbnail" *ngIf='user.image && user.image != "null"'>
+                <input type="text" class="form-control rounded-top" #email='ngModel' name='email' [(ngModel)]='user.email' placeholder="Email" required>
+                <input type="text" class="form-control rounded-0" #name='ngModel' name='name' [(ngModel)]='user.name' placeholder="Nombre" required>
+                <input type="text" class="form-control rounded-bottom" #surname='ngModel' name='surname' [(ngModel)]='user.surname' placeholder="Apellido" required>
+                
+                <input type="file" name="" id="" placeholder="Subir Imagen" (change)='fileChangeEvent($event)'>
                 <input class="btn btn-lg btn-primary btn-block mt-3" type="submit" value="Editar">
             </form>
         </div>
