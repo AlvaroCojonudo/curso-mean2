@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { DahsboardComponent } from './components/dahsboard/dahsboard.component';
 import { ErrorComponent } from './components/error/error.component';
+import { ArtistListComponent } from './components/artist-list/artist-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserEditComponent,
     DahsboardComponent,
-    ErrorComponent
+    ErrorComponent,
+    ArtistListComponent
   ],
   imports: [
     BrowserModule,

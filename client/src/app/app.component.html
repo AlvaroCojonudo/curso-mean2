@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradiant-ui sticky-top">
   <div class="container">
-    <a class="navbar-brand tittle" routerLink='/' href="#">{{ title }}</a>
+    <a class="navbar-brand tittle" routerLink='/' href="#" data-toggle="tooltip" data-placement="bottom" title="Ir a Inicio">{{ title }}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,8 @@
               aria-haspopup="true" aria-expanded="false" href="#"><i
                 class="fas fa-user-circle mr-2"></i>{{ identity.user }}<span class="sr-only">(current)</span></a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" routerLink='/mis-datos' href="#"><i class="fas fa-user-edit mr-2"></i>Mis Datos</a>
+              <a class="dropdown-item" routerLink='/mis-datos' routerLinkActive="active" href="#"><i class="fas fa-user-edit mr-2"></i>Mis
+                Datos</a>
               <a class="dropdown-item" (click)='logout()' href="#"><i class="fas fa-door-open mr-2"></i>Cerrar
                 Sesion</a>
             </div>
@@ -25,7 +26,16 @@
   </div>
 </nav>
 <div class="container" *ngIf="identity">
-  <router-outlet></router-outlet>  
+  <ul class="list-group list-group-horizontal my-2" id="list-action-search">
+    <li class="list-group-item font-weight-bold text-truncate bg-info text-light">Buscar<i
+        class="fas fa-search ml-2"></i></li>
+    <button class="list-group-item font-weight-bold font-italic text-truncate" routerLink="artist"
+      routerLinkActive="active" data-toggle="tooltip" data-placement="bottom" title="Ir a Artistas">Artista<i class="fas fa-microphone-alt ml-2"></i></button>
+    <button class="list-group-item font-weight-bold font-italic text-truncate" routerLink="album"
+    routerLinkActive="active" data-toggle="tooltip" data-placement="bottom" title="Ir a Albums">Album<i
+        class="fas fa-compact-disc ml-2"></i></button>
+  </ul>
+  <router-outlet></router-outlet>
 </div>
 <div class="container" *ngIf="!identity">
   <div class="row">
