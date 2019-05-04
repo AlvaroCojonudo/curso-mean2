@@ -12,7 +12,7 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent implements OnInit {
   public url: string;
-  public title = 'Musify';
+  public title = "m\\u/sic";
   public user: User;
   public userRegister: User;
   public identity: any;

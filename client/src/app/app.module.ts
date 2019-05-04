@@ -9,13 +9,15 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { DahsboardComponent } from './components/dahsboard/dahsboard.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ArtistListComponent } from './components/artist-list/artist-list.component';
+import { ReproductorComponent } from './components/reproductor/reproductor.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserEditComponent,
     DahsboardComponent,
     ErrorComponent,
-    ArtistListComponent
+    ArtistListComponent,
+    ReproductorComponent
   ],
   imports: [
     BrowserModule,
