@@ -2,7 +2,8 @@
   <div class="col">
     <div class="card my-4 pt-2">
       <h1 class="display-4 text-center">{{ title }} <span class="badge badge-warning">{{ artists.length }}</span></h1>
-    </div>    
+      <a *ngIf="identity && identity.role == 'ROLE_ADMIN'" routerLink='/crear-artista' class="text-center btn btn-success mx-auto mb-2">Anhadir artist</a>
+    </div>
     <div class="card-columns">
       <div class="card" *ngFor='let artist of artists'>
         <img src="{{ artist.image }}" class="card-img-top" alt="...">

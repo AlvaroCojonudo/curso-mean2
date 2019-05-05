@@ -4,6 +4,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { DahsboardComponent } from './components/dahsboard/dahsboard.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ArtistListComponent } from './components/artist-list/artist-list.component';
+import { ArtistAddComponent } from './components/artist-add/artist-add.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,12 @@ const routes: Routes = [
     component: UserEditComponent,    
   },
   {
-    path: 'artist',
+    path: 'artistas/:page?',
     component: ArtistListComponent
+  },
+  {
+    path: 'crear-artista',
+    component: ArtistAddComponent,    
   },
   {
     path: '**',

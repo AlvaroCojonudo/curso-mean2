@@ -1,0 +1,35 @@
+<div class="card mb-5">
+  <div class="card-header">
+    <span class="fa-stack fa-1x">        
+        <i class="fas fa-square fa-stack-2x"></i>
+        <i class="fas fa-microphone-alt fa-stack-2x" style="color:Tomato"></i>
+        <i class="fas fa-plus fa-stack-1x" style="color:rgb(255, 255, 255)"></i>
+      </span>{{title}}
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <form #formArtist="ngForm" class="row" (ngSubmit)="onSubmit()">
+          <div class="form-group col-md-8 offset-md-2">
+            <label for="nameNewArtist">Nombre</label>
+            <input type="text" class="form-control" #name="ngModel" name="name" [(ngModel)]="artist.name"
+              id="nameNewArtist" placeholder="Nombre Artista" required>
+          </div>
+          <div class="form-group col-md-8 offset-md-2">
+            <label for="descriptionNewArtist">Descripcion</label>
+            <textarea type="text" class="form-control" #description="ngModel" name="description"
+              [(ngModel)]="artist.description" id="descriptionNewArtist" placeholder="Descripcion Artista" required
+              rows="3"></textarea>
+          </div>
+          <div class="col-md-8 offset-md-2">
+            <button type="submit" class="btn btn-primary text-center font-weight-bold btn-block mx-auto"
+              [disabled]="!formArtist.form.valid">Crear<i class="fas fa-plus ml-2"></i></button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>

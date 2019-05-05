@@ -1,0 +1,10 @@
+.card .card-body input,
+.card .card-body label,
+.card .card-body textarea,
+.card .card-body button 
+{
+    font-size: 1.4rem !important;
+}
+.card .card-header{
+    font-size: 1.7rem !important;
+}
