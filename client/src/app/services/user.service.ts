@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpResponse, HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { global } from './global';
-import { map } from 'rxjs/operators';
-import { identity } from 'rxjs';
 @Injectable({
     providedIn: 'root'
 })
