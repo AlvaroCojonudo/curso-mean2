@@ -11,6 +11,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { ArtistListComponent } from './components/artist-list/artist-list.component';
 import { ReproductorComponent } from './components/reproductor/reproductor.component';
 import { ArtistAddComponent } from './components/artist-add/artist-add.component';
+import { ArtistEditComponent } from './components/artist-edit/artist-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { ArtistAddComponent } from './components/artist-add/artist-add.component
     ErrorComponent,
     ArtistListComponent,
     ReproductorComponent,
-    ArtistAddComponent
+    ArtistAddComponent,
+    ArtistEditComponent
   ],
   imports: [
     BrowserModule,

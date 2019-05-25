@@ -20,6 +20,6 @@ export class ArtistService {
                 'Authorization': token
             })
         }
-        return 'Holamundo artista agregado';
+        return this._http.post(this.url + 'artist', params, httpOptions);
     }
 }
